@@ -92,16 +92,9 @@ namespace nimBill
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                  "default",
-                  "{controller=Home}/{action=Index}");
-                endpoints.MapControllerRoute(
-                  "counter",
-                  "/counter",
-                  new { controller = "Home", action = "Index" });
-                endpoints.MapControllerRoute(
-                  "fetch-data",
-                  "/fetch-data",
-                  new { controller = "Home", action = "Index" });
+                    name: "default",
+                    pattern: "{controller}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
 
             app.UseSpa(spa =>
